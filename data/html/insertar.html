@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Introducir</title>
+<meta charset="UTF-8"> 
+<link rel="stylesheet" href="../style/estilos.css">
+</head>
+<body>
+<h1>Introducir visitas:</h1>
+<h3>A continuación se muestra la tabla para introducir las preguntas. Para volver al menú principal haz click <a href="../../index.html">aquí</a></h3>
+<div>
+<fieldset>
+    <legend>Introduce tu comentario</legend>
+		<td><br>
+		<form id='fquestion' name='fquestion' action="../php/AddComment.php" method="POST">
+			<label id= "labusu" for="usu">Nombre de usuario:*</label>
+			<input type="text" id="usu" name="usu" size="30"><br><br>
+			<label id="labmail" for="email">Email:</label>
+			<input type="text" id="email" name="email" size="30" onchange="aparecer()"><br><br>
+			<label id="labanon" for="anon"> Mantener mi correo como anónimo:</label>
+			<input type="checkbox" id="anon" name="anon" value="si"><br><br>
+			<label id="labcom" for="comment">Comentario:*</label><br><br>
+			<textarea rows="4" cols="50" id= "comment"name="comment" form="fquestion"></textarea> <br><br>
+			<input type="submit" id="boton" value="Enviar solicitud"><br>
+		</form>
+			</td>
+	</fieldset>
+	<script src="../js/comprobador.js"></script>
+    </div>
+	</body>
+</html>

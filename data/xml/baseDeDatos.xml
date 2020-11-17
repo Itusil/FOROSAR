@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE visitas SYSTEM "libro_visitas.dtd">
+<temas ult_id="1" ult_id_comentario="1">
+  <tema id="0">
+    <descripcion>Esta es la descripcion del tema</descripcion>
+    <creador>Pepe</creador>
+    <tema_general>Tecnologia</tema_general>
+    <resumemtema>Este es el resumen</resumemtema>
+    <valoracion>22</valoracion>
+    <numres>2</numres>
+    <comentario id_comentario="0">
+      <usuario>Perico</usuario>
+      <descripcionComentario>Bla bla bla bla bla</descripcionComentario>
+      <valoracionCom>21</valoracionCom>
+    </comentario>
+    <comentario id_comentario="1">
+      <usuario>Tolai</usuario>
+      <descripcionComentario>Bleeeeeee</descripcionComentario>
+      <valoracionCom>1</valoracionCom>
+    </comentario>
+  </tema>
+  <tema id="1">
+    <descripcion>Esta es la descripcion del tema</descripcion>
+    <creador>Peru</creador>
+    <tema_general>Mecánica</tema_general>
+    <resumemtema>Este es el resumen</resumemtema>
+    <valoracion>0</valoracion>
+    <numres>0</numres>
+  </tema>
+</temas>
