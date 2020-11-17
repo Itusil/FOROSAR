@@ -11,6 +11,24 @@
 <h3>No encuentras el tema del que quieres hablar? Crea un nuevo tema haciendo click 
 <a href="javascript:insertar()">aquí</a></h3>
 <div>
+<fieldset id="fieldtemas">
+<text style="color:blue; text-weight:bold; font-size=20px">Quieres ver temas de un campo en concreto? Selecciona uno y de la lista y haz click en buscar!</legend><br><br>
+<form id="nuevotema" action='redirect.php' method="POST">
+<select name="campo__" id="campo__">
+				<option value="Mecanica">Mecanica</option>
+				<option value="Informatica">Informatica</option>
+				<option value="Tecnologia">Tecnologia</option>
+				<option value="Videojuegos">Videojuegos</option>
+				<option value="Deportes">Deportes</option>
+</select><br><br>
+<input type="submit" value="Buscar" ><br><br>
+<?php
+	if (isset($_GET['tema'])){
+		echo "<text>Para volver a ver todos los temas haz click <a href='mostrarTemas.php'>aquí</a></text>";
+	}?>
+</form>
+</fieldset>
+
 <fieldset class="oculto" id="campo">
     <legend>Introduce un nuevo tema</legend>
 		<td><br>
@@ -38,6 +56,30 @@
 	<div>
 	<br><br>
 	<?php	
+	
+	if (isset($_GET['tema'])){
+		$temas = simplexml_load_file('../xml/baseDeDatos.xml');
+		foreach ($temas->xpath('//tema') as $tema)
+		{
+			$tema_general = $tema->tema_general;
+			if($tema_general == $_GET['tema']){
+				$id=$tema['id'];
+				$descripcion= $tema->descripcion;
+				$creador=$tema->creador;
+				$valoracion=$tema->valoracion;
+				$numres=$tema->numres;
+				$temageneral = $tema->tema_general;
+				
+				echo "<table border='1' width='75%'><tr>";
+				echo "<th><a href='mostrarComentarios.php?id=$id'>$descripcion </a></th></tr>";
+				echo "<tr><td>";
+				echo "<text class='fecha'>$creador</text>";
+				echo "<text class='nombre'> &nbsp;&nbsp;&nbsp; valoracion:&nbsp; $valoracion &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $numres &nbsp; respuestas &nbsp;&nbsp; Tema: $temageneral</text>";
+				echo "</td></tr>";
+				echo "</table><br><br><br>";
+			}
+			}
+	}else{	
 	$temas = simplexml_load_file('../xml/baseDeDatos.xml');
 	foreach ($temas->xpath('//tema') as $tema)
 	{
@@ -46,18 +88,18 @@
 		$creador=$tema->creador;
 		$valoracion=$tema->valoracion;
 		$numres=$tema->numres;
+		$temageneral = $tema->tema_general;
 		
         echo "<table border='1' width='75%'><tr>";
 		echo "<th><a href='mostrarComentarios.php?id=$id'>$descripcion 
 </a></th></tr>";
 		echo "<tr><td>";
         echo "<text class='fecha'>$creador</text>";
-        echo "<text class='nombre'> &nbsp;&nbsp;&nbsp; valoracion:&nbsp; 
-$valoracion &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $numres &nbsp; respuestas 
-&nbsp;&nbsp;</text>";
+		echo "<text class='nombre'> &nbsp;&nbsp;&nbsp; valoracion:&nbsp; $valoracion &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $numres &nbsp; respuestas &nbsp;&nbsp; Tema: $temageneral</text>";
         echo "</td></tr>";
         echo "</table><br><br><br>";
 		}
+	}
 	?> 
     
 
