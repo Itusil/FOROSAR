@@ -4,7 +4,9 @@
 <title>Visitas</title>
 <meta charset="UTF-8"> 
 <link rel="stylesheet" href="../style/estilos.css">
+ <script src="../js/jquery-3.4.1.min.js"></script>
 <script src="../js/insertar.js"></script>
+<script src="../js/AddTemaAjax.js"></script>
 </head>
 <body>
 <h1>Foro de temas:</h1>
@@ -32,7 +34,7 @@
 <fieldset class="oculto" id="campo">
     <legend>Introduce un nuevo tema</legend>
 		<td><br>
-		<form id='fquestion' name='fquestion' action="../php/AddTemas.php" method="POST"  enctype="multipart/form-data">
+		<form id='fquestion' name='fquestion' method="POST"  enctype="multipart/form-data">
 			<script>insertar();</script>
 			<label for="des">Tema:*</label>
 			<input type="text" id="des" name="des" size="40"><br><br>
@@ -51,17 +53,19 @@
 			<label for="fotoASubir">Imagen (si lo desea):</label>
 			<input type="file" accept="image/*" name="fotoASubir" id="fotoASubir"><br><br>
 			
-			<input type="submit" id="boton" value="Enviar solicitud"><br>
+			<input type="button" id="botonEnvio" value="Enviar solicitud"><br>
+			<text id="respuestaAnadir"></text>
 		</form>
 			</td>
 	</fieldset>
     </div>
-	<div>
 	<br><br>
+	<section id="todosTemas">
 	<?php	
 	
 	if (isset($_GET['tema'])){
 		$temas = simplexml_load_file('../xml/baseDeDatos.xml');
+		$complete="";
 		foreach ($temas->xpath('//tema') as $tema)
 		{
 			$tema_general = $tema->tema_general;
@@ -72,18 +76,22 @@
 				$valoracion=$tema->valoracion;
 				$numres=$tema->numres;
 				$temageneral = $tema->tema_general;
-				
-				echo "<table border='1' width='75%'><tr>";
-				echo "<th><a href='mostrarComentarios.php?id=$id'>$descripcion </a></th></tr>";
-				echo "<tr><td>";
-				echo "<text class='fecha'>$creador</text>";
-				echo "<text class='nombre'> &nbsp;&nbsp;&nbsp; valoracion:&nbsp; $valoracion &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $numres &nbsp; respuestas &nbsp;&nbsp; Tema: $temageneral</text>";
-				echo "</td></tr>";
-				echo "</table><br><br><br>";
+				$temp="";
+				// echo "<table border='1' width='75%'><tr>";
+				// echo "<th><a href='mostrarComentarios.php?id=$id'>$descripcion </a></th></tr>";
+				// echo "<tr><td>";
+				// echo "<text class='fecha'>$creador</text>";
+				// echo "<text class='nombre'> &nbsp;&nbsp;&nbsp; valoracion:&nbsp; $valoracion &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $numres &nbsp; respuestas &nbsp;&nbsp; Tema: $temageneral</text>";
+				// echo "</td></tr>";
+				// echo "</table><br><br><br>";
+				$temp= "<table border='1' width='75%'><tr><th><a href='mostrarComentarios.php?id=$id'>$descripcion </a></th></tr><tr><td><text class='fecha'>$creador</text><text class='nombre'> &nbsp;&nbsp;&nbsp; valoracion:&nbsp; $valoracion &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $numres &nbsp; respuestas &nbsp;&nbsp; Tema: $temageneral</text></td></tr></table><br><br><br>";
+				$complete= $temp.$complete;
 			}
 			}
+			echo "$complete";
 	}else{	
 	$temas = simplexml_load_file('../xml/baseDeDatos.xml');
+	$complete="";
 	foreach ($temas->xpath('//tema') as $tema)
 	{
         $id=$tema['id'];
@@ -92,21 +100,25 @@
 		$valoracion=$tema->valoracion;
 		$numres=$tema->numres;
 		$temageneral = $tema->tema_general;
-		
-        echo "<table border='1' width='75%'><tr>";
-		echo "<th><a href='mostrarComentarios.php?id=$id'>$descripcion 
-</a></th></tr>";
-		echo "<tr><td>";
-        echo "<text class='fecha'>$creador</text>";
-		echo "<text class='nombre'> &nbsp;&nbsp;&nbsp; valoracion:&nbsp; $valoracion &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $numres &nbsp; respuestas &nbsp;&nbsp; Tema: $temageneral</text>";
-        echo "</td></tr>";
-        echo "</table><br><br><br>";
+		$temp="";
+        // echo "<table border='1' width='75%'><tr>";
+		// echo "<th><a href='mostrarComentarios.php?id=$id'>$descripcion 
+// </a></th></tr>";
+		// echo "<tr><td>";
+        // echo "<text class='fecha'>$creador</text>";
+		// echo "<text class='nombre'> &nbsp;&nbsp;&nbsp; valoracion:&nbsp; $valoracion &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $numres &nbsp; respuestas &nbsp;&nbsp; Tema: $temageneral</text>";
+        // echo "</td></tr>";
+        // echo "</table><br><br><br>";
+		$temp= "<table border='1' width='75%'><tr><th><a href='mostrarComentarios.php?id=$id'>$descripcion </a></th></tr><tr><td><text class='fecha'>$creador</text><text class='nombre'> &nbsp;&nbsp;&nbsp; valoracion:&nbsp; $valoracion &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $numres &nbsp; respuestas &nbsp;&nbsp; Categoría: $temageneral</text></td></tr></table><br><br><br>";
+		$complete= $temp.$complete;
 		}
+		echo "$complete";
+
 	}
 	?> 
     
 
 
-</div>
+</section>
 	</body>
 </html>

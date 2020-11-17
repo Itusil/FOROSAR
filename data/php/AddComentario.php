@@ -36,13 +36,13 @@
 						{
 							$id=$tema['id'];
 							if($id == $_GET['id']){
-							$ultidcom=$xml['ult_id_comentario'];
+							$ultidcom=$temas['ult_id_comentario'];
 							$id=$ultidcom+1;
 							$numero = $tema->numres;
 							$tema->numres=$numero+1;
 							$comentario=$tema->addChild('comentario');
 							$comentario->addAttribute('id_comentario',$id);
-							$xml['ult_id_comentario']=$id;
+							$temas['ult_id_comentario']=$id;
 							$comentario->addChild('usuario', $_POST['usu']);
 							$comentario->addChild('descripcionComentario', $_POST['comment']);
 							$comentario->addChild('valoracionCom',0);
@@ -53,12 +53,15 @@
 					    $nuevoxml = new SimpleXMLElement($xmlContent);
 					    $nuevoxml->asXML('../xml/baseDeDatos.xml');
 
-                        for ($i=0;$i<6;$i++){
-                            echo "<br/><br/>";                    
-                        }
-					    echo '<p style="color:green; font-size:20px; font-weight: bold; text-align:center;">Pregunta insertada correctamente en el archivo xml</p>';
-					    echo '<p style="text-align:center"><a style="font-size=20;" href="visitas.php">Ver insertadas</a></p>';
-				    }
+                        // for ($i=0;$i<6;$i++){
+                            // echo "<br/><br/>";                    
+                        // }
+					    // echo '<p style="color:green; font-size:20px; font-weight: bold; text-align:center;">Pregunta insertada correctamente en el archivo xml</p>';
+					    // echo '<p style="text-align:center"><a style="font-size=20;" href="visitas.php">Ver insertadas</a></p>';
+						$usuario_=$_POST['usu'];
+						$id__=$_GET['id'];
+						echo "<script>alert('Respuesta registrada correctamente, gracias $usuario_');window.location.href = 'mostrarComentarios.php?id=$id__';</script>";
+					}
  ?>
 
     </div>
