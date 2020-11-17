@@ -29,7 +29,7 @@
 			$descripcionComentario=$comentario->descripcionComentario;
 			$valoracionCom=$comentario->valoracionCom;
 			echo "<table border='1' width='75%'><tr>";
-			echo "<th><text class='fecha'>$usuario</text><text style='text-align:left;color:green;'> Valoracion: <a href='javascript:subirval($id, $id_com)'>&uarr;<a/><text id='com$id$id_com'>$valoracionCom</text><a href='UpdateValorationDOWN.php?id=$id&idcom=$id_com'>&darr;</a></text></th></tr>";
+			echo "<th><text class='fecha'>$usuario</text><text style='text-align:left;color:green;'> Valoracion: <a href='javascript:subirval($id, $id_com)'>&uarr;<a/><text id='com$id$id_com'>$valoracionCom</text><a href='javascript:bajarval($id, $id_com)'>&darr;</a></text></th></tr>";
 			echo "<tr><td>";
 			echo "<text>$descripcionComentario</text>";
 			echo "</td></tr>";

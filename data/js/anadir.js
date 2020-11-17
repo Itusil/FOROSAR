@@ -12,3 +12,12 @@ function subirval(id, id_com){
 	xmlhttp.open("GET","../php/UpdateValorationUP.php?id="+id+"&idcom="+id_com,true);
 	xmlhttp.send();
 }
+
+function bajarval(id, id_com){
+	nombre="com"+id+id_com;
+	xmlhttp.open("GET","../php/UpdateValorationDOWN.php?id="+id+"&idcom="+id_com,true);
+	xmlhttp.send();
+}
+
+
+

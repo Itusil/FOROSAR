@@ -32,7 +32,7 @@
 <fieldset class="oculto" id="campo">
     <legend>Introduce un nuevo tema</legend>
 		<td><br>
-		<form id='fquestion' name='fquestion' action="../php/AddTemas.php" method="POST">
+		<form id='fquestion' name='fquestion' action="../php/AddTemas.php" method="POST"  enctype="multipart/form-data">
 			<script>insertar();</script>
 			<label for="des">Tema:*</label>
 			<input type="text" id="des" name="des" size="40"><br><br>
@@ -48,6 +48,9 @@
 			 </select><br><br>
 			<label id="labcom" for="comment">Cuerpo del tema:*</label><br><br>
 			<textarea rows="4" cols="50" id= "comment"name="comment" form="fquestion"></textarea> <br><br>
+			<label for="fotoASubir">Imagen (si lo desea):</label>
+			<input type="file" accept="image/*" name="fotoASubir" id="fotoASubir"><br><br>
+			
 			<input type="submit" id="boton" value="Enviar solicitud"><br>
 		</form>
 			</td>
