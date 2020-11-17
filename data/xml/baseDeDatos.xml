@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE visitas SYSTEM "libro_visitas.dtd">
-<temas ult_id="0" ult_id_comentario="1">
+<temas ult_id="3" ult_id_comentario="4">
   <tema id="0">
     <descripcion>Esta es la descripcion del tema</descripcion>
     <creador>Pepe</creador>
@@ -17,6 +17,43 @@
       <usuario>Tolai</usuario>
       <descripcionComentario>Bleeeeeee</descripcionComentario>
       <valoracionCom>2</valoracionCom>
+    </comentario>
+  </tema>
+  <tema id="2">
+    <foto>../images/error.jpg</foto>
+    <descripcion>Problema con Php</descripcion>
+    <creador>Itusil</creador>
+    <tema_general>Informatica</tema_general>
+    <resumemtema>Os cuento, no me imprime el echo, a que se puede deber?&#13;
+&#13;
+Dejo foto del codigo aqui abajo.&#13;
+&#13;
+Gracias de antemano</resumemtema>
+    <valoracion>0</valoracion>
+    <numres>1</numres>
+    <comentario id_comentario="4">
+      <usuario>Mikel</usuario>
+      <descripcionComentario>Te faltan las comillas crack</descripcionComentario>
+      <valoracionCom>0</valoracionCom>
+    </comentario>
+  </tema>
+  <tema id="3">
+    <foto>../images/Captura de pantalla 2020-11-16 093634.jpg</foto>
+    <descripcion>Que videojuego es este</descripcion>
+    <creador>Perico</creador>
+    <tema_general>Videojuegos</tema_general>
+    <resumemtema>Nada pues que he visto esta foto y me ha gustado que videojuego es?</resumemtema>
+    <valoracion>0</valoracion>
+    <numres>2</numres>
+    <comentario id_comentario="2">
+      <usuario>Perico</usuario>
+      <descripcionComentario>Eso no es un juego</descripcionComentario>
+      <valoracionCom>0</valoracionCom>
+    </comentario>
+    <comentario id_comentario="3">
+      <usuario>Mike</usuario>
+      <descripcionComentario>Bobo</descripcionComentario>
+      <valoracionCom>0</valoracionCom>
     </comentario>
   </tema>
 </temas>

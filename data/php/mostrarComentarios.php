@@ -19,9 +19,14 @@
 		echo "<h2>Creado por: $tema->creador</h3>";
 		echo "<h2>Categoria: $tema->tema_general</h3>";
 		echo "<h3>Resumen: $tema->resumemtema</h3>";
+				$foto=$tema->foto;
+		if($foto != "../images/"){		
+			echo "<img src='$foto' width='200px'>";
+		}
+		
 		echo "<h3>Valoracion: <text id='valtema'>$tema->valoracion</text></h3>";
 		echo "<h3>$tema->numres comentarios:</h3>";
-		
+
 		foreach ($tema->comentario as $comentario)
 		{	
 			$id_com=$comentario['id_comentario'];

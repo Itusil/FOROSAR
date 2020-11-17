@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8"> 
-<link rel="stylesheet" href="../style/estilos.css">
-</head>
-<body>
-    <div>
 		<?php
 		//Identar inserción
 		function formatXml($simpleXMLElement)
@@ -35,11 +27,11 @@
 				$extensio= pathinfo($file_get, PATHINFO_EXTENSION);
 				$file_to_saved = "../images/".$file_get; //Documents folder, should exist in       your host in there you're going to save the file just uploaded
 			
-				if($extensio === "jpeg"||$extensio === "png" || $extensio === "jpg" ||$extensio === "gif"){
-					$error=0;
-				}else{
+				if($temp != "" && $extensio != "jpeg"&& $extensio != "png" && $extensio != "jpg" && $extensio != "gif"){
 					echo '<p style="color:red; text-align:center; font-size:20px; font-weight: bold;">ERROR:Archivo no es una imagen/p>';
-                    $error = 1;
+                    $error = 1;				
+				}else{
+                    $error = 0;
 				}
 				if($error == 0){
 					move_uploaded_file($temp, $file_to_saved);
@@ -54,23 +46,17 @@
 					$tema->addChild('descripcion', $_POST['des']); 
 					$tema->addChild('creador',$_POST['usu']);
 					$tema->addChild('tema_general',$_POST['rela']); 
-					$tema->addChild('resumen',$_POST['comment']); 
+					$tema->addChild('resumemtema',$_POST['comment']); 
 					$tema->addChild('valoracion',0); 
 					$tema->addChild('numres',0); 
 					//Insercion identada:
 					$xmlContent = formatXml($xml);
 					$nuevoxml = new SimpleXMLElement($xmlContent);
 					$nuevoxml->asXML('../xml/baseDeDatos.xml');
-
-					for ($i=0;$i<6;$i++){
-						echo "<br/><br/>";                    
-					}
-					echo '<p style="color:green; font-size:20px; font-weight: bold; text-align:center;">Pregunta insertada correctamente en el archivo xml</p>';
-					echo '<p style="text-align:center"><a style="font-size=20;" href="visitas.php">Ver insertadas</a></p>';
+					echo '<p style="color:green; font-size:20px; font-weight: bold; text-align:center;">Tema añadido correctamente</p>';
+					echo '<p style="text-align:center"><a style="font-size=20;" href="mostrarTemas.php">Recargar pagina y ver resultado</a></p>';
+					
 				}
  ?>
 
-    </div>
-</body>
-</html>
 
