@@ -109,7 +109,9 @@
 		// echo "<text class='nombre'> &nbsp;&nbsp;&nbsp; valoracion:&nbsp; $valoracion &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $numres &nbsp; respuestas &nbsp;&nbsp; Tema: $temageneral</text>";
         // echo "</td></tr>";
         // echo "</table><br><br><br>";
-		$temp= "<table border='1' width='75%'><tr><th><a href='mostrarComentarios.php?id=$id'>$descripcion </a></th></tr><tr><td><text class='fecha'>$creador</text><text class='nombre'> &nbsp;&nbsp;&nbsp; valoracion:&nbsp; $valoracion &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $numres &nbsp; respuestas &nbsp;&nbsp; Categoría: $temageneral</text></td></tr></table><br><br><br>";
+		$nomUsu=$_GET['usu'];
+		$foto=$_GET['img'];
+		$temp= "<table border='1' width='75%'><tr><th><a href='mostrarComentarios.php?id=$id&usu=$nomUsu&img=$foto'>$descripcion</a></th></tr><tr><td><text class='fecha'>$creador</text><text class='nombre'> &nbsp;&nbsp;&nbsp; valoracion:&nbsp; $valoracion &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $numres &nbsp; respuestas &nbsp;&nbsp; Categoría: $temageneral</text></td></tr></table><br><br><br>";
 		$complete= $temp.$complete;
 		}
 		echo "$complete";

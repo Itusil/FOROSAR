@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE visitas SYSTEM "libro_visitas.dtd">
-<temas ult_id="3" ult_id_comentario="4">
+<temas ult_id="4" ult_id_comentario="6">
   <tema id="0">
     <descripcion>Esta es la descripcion del tema</descripcion>
     <creador>Pepe</creador>
@@ -29,12 +29,17 @@
 Dejo foto del codigo aqui abajo.&#13;
 &#13;
 Gracias de antemano</resumemtema>
-    <valoracion>0</valoracion>
-    <numres>1</numres>
+    <valoracion>3</valoracion>
+    <numres>2</numres>
     <comentario id_comentario="4">
       <usuario>Mikel</usuario>
       <descripcionComentario>Te faltan las comillas crack</descripcionComentario>
-      <valoracionCom>0</valoracionCom>
+      <valoracionCom>1</valoracionCom>
+    </comentario>
+    <comentario id_comentario="6">
+      <usuario>Itusil</usuario>
+      <descripcionComentario>cfccc</descripcionComentario>
+      <valoracionCom>2</valoracionCom>
     </comentario>
   </tema>
   <tema id="3">
@@ -54,6 +59,20 @@ Gracias de antemano</resumemtema>
       <usuario>Mike</usuario>
       <descripcionComentario>Bobo</descripcionComentario>
       <valoracionCom>0</valoracionCom>
+    </comentario>
+  </tema>
+  <tema id="4">
+    <foto>../images/</foto>
+    <descripcion>SGFSDF</descripcion>
+    <creador>DFSGDFS</creador>
+    <tema_general>Mecanica</tema_general>
+    <resumemtema>DFSGSDFGS</resumemtema>
+    <valoracion>1</valoracion>
+    <numres>1</numres>
+    <comentario id_comentario="5">
+      <usuario>SFGDFSG</usuario>
+      <descripcionComentario>SDGFDFG</descripcionComentario>
+      <valoracionCom>1</valoracionCom>
     </comentario>
   </tema>
 </temas>
